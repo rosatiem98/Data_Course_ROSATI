@@ -1,62 +1,13 @@
-# Data_Course_ROSATIHello World
-This README file contains information about my uploaded assignments
-Hello World
-This README file contains information about my uploaded assignments
-Potatoes
-This README file contains information about my uploaded assignments
-Biotechnology is cool
-R course
-4839525750120075202350
-, kangaroo
-, koala
-whale
-Gorilla
-Dog
-have a nice day
-1
-2
-3
-2
-3
-4
-5
-5
-6
-7
-8
-9
-10
-11
-12
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
+# Data Analysis Course - Utah Valley University
+
+This site serves as a repository for all class material.
+
+The course [*website*](https://gzahn.github.io/data-course/) gives a tentative outline of the weekly topics to be covered. It also has assignments and plentiful links to outside resources to help you learn.
+
+The code and data we use in class will be posted here so you have access to it.
+Additionally, detailed assignment instructions will be here as they become available (see the Assignments directory).
+*All assignments will be turned in on Canvas as well as your personal GitHub repository.*
+
+The file *Syllabus.pdf* is the official course syllabus.
+
+45
