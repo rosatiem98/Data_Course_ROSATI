@@ -49,7 +49,8 @@ data("iris") # load it like this
 # Each row or column is a vector
 
 
-dat <- iris # can rename the object to be easier to type if you want
+dat <- iris
+# can rename the object to be easier to type if you want
 
 # ways to get a peek at our data set
 names(dat)
@@ -168,16 +169,22 @@ for(i in levels(dat$Species)){
 # YOUR REMAINING HOMEWORK ASSIGNMENT (Fill in with code) ####
 
 # 1.  Make a scatterplot of Sepal.Length vs Sepal.Width. See if you can get the points to be colored by "Species"
-
-
+plot(x=dat$Sepal.Length, y=dat$Petal.Length, col = dat$Species)
 # 2.  Write the code to save it (with meaningful labels) as a jpeg file
-
+jpeg("./Sepal_vs_Petal.jpg")
+plot(x=dat$Sepal.Length,
+     y=dat$Petal.Length,
+     col=dat$Species,
+     main = "My Title",
+     xlab = "My axis label",
+     ylab = "My other axis label")
+dev.off()
 
 # 3.  Subset the Iris data set to only include rows from the setosa and virginica Species
-
+dit <- dat[-c(51:100),]
 
 # 4.  Write code to save this new subset as a .csv file called setosa_and_virginica.csv
-
+write.csv(dit, "setosa_and_virginica.csv")
 
 # 5.  Upload this R script (with all answers filled in and tasks completed) to canvas and GitHub
       # I should be able to run your R script and get all the plots created and saved, etc.
