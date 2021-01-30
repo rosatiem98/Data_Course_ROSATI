@@ -50,11 +50,13 @@ data("iris") # load it like this
 
 
 dat <- iris # can rename the object to be easier to type if you want
+identical(dat,iris)
 
 # ways to get a peek at our data set
 names(dat)
 dim(dat)
 head(dat)
+?head
 
 # You can access specific columns of a "data frame" by name using '$'
 dat$Species
@@ -63,11 +65,24 @@ dat$Sepal.Length
 # You can also use square brackets to get specific 1-D or 2-D subsets of a data frame (rows and/or columns)
 dat[1,1] # [Rows, Columns]
 dat[1:3,5]
+Sepal.Area <- dat$Sepal.Length * dat$Sepal.Width
+dat$Sepal.Area <- Sepal.Area
+
+# first 3 rows ; columns 1 & 5
+dat[1:3,c(1,5)]
+
+dit <- dat[-c(51:100),]
+
+write.csv(dit,"setosa_and_virginica.csv")
+
 
 # Plotting ####
 
 # Can make a quick plot....just give vectors for x and y axes
-plot(x=dat$Petal.Length, y=dat$Sepal.Length)
+plot(x=dat$Petal.Length, y=dat$Petal.Length, col = dat$Species)
+
+
+
 plot(x=dat$Species, y=dat$Sepal.Length)
 
 
@@ -104,8 +119,13 @@ plot(nums, main = "My Title", xlab = "My axis label", ylab = "My other axis labe
 
 
 ?jpeg()
-
-
+jpeg("./Sepal_vs_Petal.jpg")
+plot(x=dat$Sepal.Length,
+     y=dat$Petal.Length,
+     col=dat$Species,
+     main = "My Title",
+     xlab = "My axis label",
+     ylab = "My other axis label")
 dev.off()
 
 
@@ -168,15 +188,25 @@ for(i in levels(dat$Species)){
 # YOUR REMAINING HOMEWORK ASSIGNMENT (Fill in with code) ####
 
 # 1.  Make a scatterplot of Sepal.Length vs Sepal.Width. See if you can get the points to be colored by "Species"
-
+plot(x=dat$Sepal.Length, y=dat$Petal.Length, col = dat$Species)
 
 # 2.  Write the code to save it (with meaningful labels) as a jpeg file
+jpeg("./Sepal_vs_Petal.jpg")
+plot(x=dat$Sepal.Length,
+     y=dat$Petal.Length,
+     col=dat$Species,
+     main = "My Title",
+     xlab = "My axis label",
+     ylab = "My other axis label")
+dev.off()
+
 
 
 # 3.  Subset the Iris data set to only include rows from the setosa and virginica Species
-
+dit <- dat[-c(51:100),]
 
 # 4.  Write code to save this new subset as a .csv file called setosa_and_virginica.csv
+write.csv(dit, "setosa_and_virginica.csv")
 
 
 # 5.  Upload this R script (with all answers filled in and tasks completed) to canvas and GitHub
