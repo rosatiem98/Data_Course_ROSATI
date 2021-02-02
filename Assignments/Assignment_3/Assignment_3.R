@@ -230,7 +230,12 @@ vector3 + 1 # can't add 1 to "a"
 
 # Data Frames ####
 # R has quite a few built-in data sets
-data("iris") # load it like this
+data("iris")
+
+iris + Capricorn < species
+
+
+# load it like this
 
 # For built-in data, there's often a 'help file'
 ?iris
@@ -346,7 +351,35 @@ df1 # look at it...note column names are what we gave it.
 # save it into an object called "dat3"
 
 
+#CTLR-ALT-B...runs everything in order before your cursor
 
+
+
+iris$Species == "setosa"
+3>4
+3==3
+3==2+1
+#== is asking a question 
+#= is stating a fact
+"A" %in% c("A","B","c")
+c("A","D") %in% c("A","B","c")
+1:10 > 5
+iris$Species %in% c("setosa","virginica")
+therowsiwant <- iris$Species %in% c("setosa","virginica")
+new_iris <- iris[therowsiwant,]
+write.csv(new_iris, "./setosa_and_virginica.csv")
+
+sepallengthiwant <- iris$Sepal.Length >=6
+iris[sepallengthiwant,]
+
+dim(iris[sepallengthiwant,])
+
+table(iris$Species)
+
+iris[iris$Species != "versicolor",]
+
+iris[rows,columns]
+iris[therowsiwant,] #blank means "All" rows or columns
 
 
 # WRITING OUT FILES FROM R ####
@@ -395,12 +428,14 @@ dev.off()
 
 
 # 3.  Subset the Iris data set to only include rows from the setosa and virginica Species
-dit <- dat[-c(51:100),]
+iris$Species %in% c("setosa","virginica")
+therowsiwant <- iris$Species %in% c("setosa","virginica")
+new_iris <- iris[therowsiwant,]
 
-# 4.  Write code to save this new subset as a .csv file called setosa_and_virginica.csv
-write.csv(dit, "setosa_and_virginica.csv")
 
+# 4.  Write code to save this new subset as a .csv file called setosa_and_virginica.csv 
+  write.csv(new_iris, "./setosa_and_virginica.csv") #correct way of saving as .csv
 
 # 5.  Upload this R script (with all answers filled in and tasks completed) to canvas and GitHub
       # I should be able to run your R script and get all the plots created and saved, etc.
->>>>>>> 23b5c1a532ffc999db59136ccf6f3e04fb16457f
+
