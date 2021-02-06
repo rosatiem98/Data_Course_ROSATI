@@ -15,7 +15,7 @@ ggplot (iris, aes (x = Sepal.Length, y = Sepal.Width, colour = Species)) + geom_
 irisplot1 <- ggplot (iris, aes (x = Sepal.Length, y = Petal.Length, colour = Species)) + geom_point() + geom_smooth(method = "lm")
 irisplot1
 
-png(filename = "./iris_fig1.png")
+png(filename = "iris_fig1.png")
 irisplot2 <- irisplot1 + labs(title="Sepal Length vs petal length", 
                  subtitle="for three iris species", 
                  y="Petal.Length", 
@@ -84,7 +84,11 @@ iris$Sepal.Length - mean(iris$Sepal.Length)
 
 ggplot(iris, aes(x=Sepal.Length - mean(Sepal.Length), color = Species)) + geom_bar()
 
-devianceplot <- ggplot(iris, aes(x=Sepal.Length - mean(Sepal.Length), color = Species)) + geom_bar()
+devianceplot <- ggplot(iris, aes(x=Sepal.Length - mean(Sepal.Length), color = Species)) + geom_bar()+ labs(title="Sepal length deviance from the mean of all observations", 
+                                                                                                           subtitle="", 
+                                                                                                           y="", 
+                                                                                                           x="Deviance from the Mean", 
+                                                                                                           caption="") + theme_bw()
 
 
 devianceplot
