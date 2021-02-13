@@ -230,6 +230,7 @@ ggplot(labdata, aes(x=Year_Collected, y=DNA_Concentration_Ben)) + geom_point(sha
                                                                                                         y="DNA Concentration", 
                                                                                                         x="Year Collected", 
                                                                                                         caption="") + theme_classic()
+ggsave("Ben_DNA_over_time.jpg")
 
 #Task6 (bonus)
 
