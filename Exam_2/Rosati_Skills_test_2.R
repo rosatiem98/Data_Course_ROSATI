@@ -25,14 +25,17 @@ names(df2) <- names(df2) %>% make_clean_names()
 
 names(df2) = gsub(pattern = "u5mr_", replacement = "", x= names(df2))
 
-newdf2
 
 df2s <- subset(df2, select = -c(country_name, region))
 df2_sep <- df2s %>%
   pivot_longer(!continent, names_to = "Year", values_to = "MortalityRate")
 
 Morplot <- ggplot(df2_sep, aes(x=factor(Year), y=MortalityRate, color=continent)) + geom_point() +
-  scale_x_discrete(breaks = c(1960, 1980, 2000))
+  scale_x_discrete(breaks = c(1960, 1980, 2000)) +  labs (title="", 
+                                                          subtitle="", 
+                                                          y="Mortality Rate", 
+                                                          x="Year", 
+                                                          caption="")
   
 
 #Task 4
