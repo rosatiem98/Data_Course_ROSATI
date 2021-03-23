@@ -238,7 +238,7 @@ adf2 <- df %>%
   add_predictions(amod5)
 adf[,c("GrowthRate","pred")] %>% head()
 
-newadf2 <- data.frame(Temperature = c(25,30,35,40),Light = c(30,35,40,45),Humidity = c("medium"), Nitrogen = c(15,50,55,60), Species = c("C.cibarius"))
+newadf2 <- data.frame(Temperature = c(25,30,35,40),Light = c(30,35,40,45),Humidity = c("medium"), Nitrogen = c(50,55,60,65), Species = c("C.cibarius"))
 
 pred = predict(amod5,newdata = newadf2)
 
@@ -276,3 +276,12 @@ ggarrange(Temp2,Light2,Hum2,Nitro,Species)
 
 
 
+nondf <- read.csv("../Data/non_linear_relationship.csv")
+
+
+ggplot(nondf, aes(x=predictor, y=response)) + geom_point()
+
+exponential.model <- lm(log(response)~predictor, data=nondf)
+summary(exponential.model)
+
+mean(exponential.model$residuals^2)
