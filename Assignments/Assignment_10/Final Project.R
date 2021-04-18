@@ -67,8 +67,4 @@ align
 saveRDS(align, "./align.RDS")
 alignment <- readRDS("./align.RDS")
 
-msaPrettyPrint(trial, output="pdf", askForOverwrite = FALSE)
-
-tmpfile <- tempfile(pattern = "msa", tmpdir = ".", fileext = ".pdf")
-msaPrettyPrint(tmpfile, output="pdf", askForOverwrite = FALSE)
-
+as.phyDat(alignment, type = "DNA")
